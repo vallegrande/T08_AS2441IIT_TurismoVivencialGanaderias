@@ -1,0 +1,150 @@
+.hero {
+    background-image: url('/images/reservation/imgReservar.png');
+    background-size: cover;
+    background-position: center;
+    height: 270px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+
+    .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+  }
+    h1 {
+    font-size: 3rem; // Ajusta este valor para hacerlo más grande (por ejemplo, 3rem, 4rem, etc.)
+    font-weight: bold;
+    margin: 0;
+  }
+
+}
+
+.reservaciones {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background-color: #f5f5f5;
+
+  .formulario {
+    width: 100%;
+    max-width: 550px;
+    max-height: 550px;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    .campos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+
+      .campo {
+        display: flex;
+        flex-direction: column;
+        max-height: 50px;
+
+        label {
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+          color: #333;
+        }
+
+        input,
+        textarea {
+          padding: 0.75rem;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          font-size: 1rem;
+        }
+
+        textarea {
+          min-height: 100px;
+          resize: vertical;
+        }
+
+        .opciones {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          label {
+            font-weight: normal;
+          }
+        }
+      }
+    }
+
+    .btn {
+      margin-top: 4rem;
+      width: 40%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border: none;
+      background-color: #1D7F59;
+      color: white;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #09b372;
+      }
+    }
+    .boton-container {
+    display: flex;
+    justify-content: flex-end; // Esto lo alinea a la derecha
+    margin-right: 2.8rem;
+    }
+
+  }
+}
+//Iconos
+.input-icono-derecha {
+  position: relative;
+
+  input {
+    width: 90%;
+    padding: 0.75rem 2.5rem 0.75rem 0.75rem; // espacio a la derecha para el ícono
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  i {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+  }
+}
+
+//Para ocultar el icono de fecha predeterminado
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  pointer-events: none;
+}
+
+//Imagenes de fondo
+.reservaciones {
+  position: relative;
+  background-color: #fff;
+  padding: 3rem 1rem;
+
+  /* Imagenes de fondo */
+  background-image:
+    url('/images/reservation/image_17.png'),  /* ruta a la imagen del carnero */
+    url('/images/reservation/image_16.png');   /* ruta a la imagen de la vaca */
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: left center, right center;
+  background-size: 310px auto, 350px auto; /* tamaño de las imágenes, ajusta según quieras */
+
+  display: flex;
+  justify-content: center;
+}

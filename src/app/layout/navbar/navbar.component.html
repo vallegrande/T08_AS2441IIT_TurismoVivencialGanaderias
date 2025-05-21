@@ -8,8 +8,9 @@
         <li><a href="#">Contacto</a></li>
     </ul>
     <div class="navbar__user">
-        <button mat-icon-button aria-label="Iniciar sesión" (click)="onLogin()">
-           <mat-icon>person</mat-icon>
+        <button mat-icon-button aria-label="Iniciar sesión" [routerLink]="'/login-form'">
+            <mat-icon>person</mat-icon>
         </button>
+
     </div>
 </nav>

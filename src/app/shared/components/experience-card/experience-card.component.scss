@@ -1,0 +1,21 @@
+.experience-card {
+    width: 230px;
+    margin: 10px;
+    text-align: center;
+
+    img {
+        height: 140px;
+        object-fit: cover;
+    }
+
+    mat-card-content p {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    mat-card-actions {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+}

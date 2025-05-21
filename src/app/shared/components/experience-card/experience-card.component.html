@@ -1,1 +1,9 @@
-<p>experience-card works!</p>
+<mat-card class="experience-card">
+    <img mat-card-image [src]="image" alt="{{ title }}" />
+    <mat-card-content>
+        <p>{{ title }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary">{{ buttonText }}</button>
+    </mat-card-actions>
+</mat-card>

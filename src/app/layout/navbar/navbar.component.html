@@ -3,9 +3,9 @@
         <img src="/logo/logorustitourblanco.png" alt="RustiTour Logo" />
     </div>
     <ul class="navbar__menu">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Experiencias</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a></li>
+        <li><a routerLink="/experiences" routerLinkActive="active">Experiencias</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active">Contacto</a></li>
     </ul>
     <div class="navbar__user">
         <button mat-icon-button aria-label="Iniciar sesión" (click)="onLogin()">

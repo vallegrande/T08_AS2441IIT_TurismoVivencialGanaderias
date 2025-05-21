@@ -1,5 +1,5 @@
-import { ReservationFormComponent } from './feature/reservation/reservation-form/reservation-form.component';
 import { Routes } from '@angular/router';
+import { ReservationFormComponent } from './feature/reservation/reservation-form/reservation-form.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
 export const routes: Routes = [
@@ -21,14 +21,16 @@ export const routes: Routes = [
                 loadComponent: () =>
                     import('./pages/contact-us/contact-us.component').then(m => m.ContactUsComponent),
             },
-            // Puedes agregar más rutas hijas aquí
-        ],
+            {
+                path: 'experiences',
+                loadComponent: () =>
+                    import('./pages/experiences/experiences.component').then(m => m.ExperiencesComponent),
+            }
+        ]
     },
-
     {
         path: '',
         pathMatch: 'full',
         redirectTo: 'reservation-form'
     }
-    // Puedes agregar rutas públicas o especiales fuera del layout si quieres
 ];

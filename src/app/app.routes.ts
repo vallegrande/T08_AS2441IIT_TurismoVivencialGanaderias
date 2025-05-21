@@ -11,11 +11,6 @@ export const routes: Routes = [
                 loadComponent: () =>
                     import('./pages/landing-page/landing.component').then(m => m.LandingComponent),
             },
-            {
-                path: 'contact-us',
-                loadComponent: () =>
-                    import('./pages/contact-us/contact-us.component').then(m => m.ContactUsComponent),
-            },
             // Puedes agregar más rutas hijas aquí
         ],
     },

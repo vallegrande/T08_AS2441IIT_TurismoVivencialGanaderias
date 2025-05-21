@@ -13,9 +13,14 @@ export const routes: Routes = [
                     import('./pages/landing-page/landing.component').then(m => m.LandingComponent),
             },
             {
-        path: 'reservation-form',
-        component: ReservationFormComponent
-      }
+                path: 'reservation-form',
+                component: ReservationFormComponent
+            },
+            {
+                path: 'contact-us',
+                loadComponent: () =>
+                    import('./pages/contact-us/contact-us.component').then(m => m.ContactUsComponent),
+            },
             // Puedes agregar más rutas hijas aquí
         ],
     },

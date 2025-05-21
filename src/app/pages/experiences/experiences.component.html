@@ -1,8 +1,7 @@
 <h2 class="section-title">Experiencias Que Puedes Vivir con Nosotros</h2>
 
 <div class="experiences-container">
-
     <app-experience-card *ngFor="let exp of experiences" [title]="exp.title" [image]="exp.image"
-        [buttonText]="'More info'">
+        [description]="exp.description" [buttonText]="'More info'" (moreInfo)="openDialog(exp)">
     </app-experience-card>
 </div>

@@ -2,13 +2,21 @@
     width: 230px;
     margin: 10px;
     text-align: center;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
 
     img {
         height: 140px;
         object-fit: cover;
+        border-radius: 4px;
     }
 
-    mat-card-content p {
+    .title {
         font-weight: bold;
         margin-top: 10px;
     }

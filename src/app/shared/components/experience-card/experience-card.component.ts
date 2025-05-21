@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,5 +13,12 @@ import { MatButtonModule } from '@angular/material/button';
 export class ExperienceCardComponent {
   @Input() title!: string;
   @Input() image!: string;
+  @Input() description!: string;
   @Input() buttonText: string = 'More info';
+
+  @Output() moreInfo = new EventEmitter<void>();
+
+  onClick(): void {
+    this.moreInfo.emit();
+  }
 }

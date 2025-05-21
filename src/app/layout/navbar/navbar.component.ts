@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';  // Importa RouterModule
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, RouterModule],
+  imports: [RouterModule, MatButtonModule, MatIconModule],  // Agrega RouterModule aquí
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })

@@ -1,3 +1,5 @@
+
+import { LoginFormComponent } from './feature/login/login-form/login-form.component';
 import { Routes } from '@angular/router';
 import { ReservationFormComponent } from './feature/reservation/reservation-form/reservation-form.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
@@ -30,13 +32,13 @@ export const routes: Routes = [
                 path: 'about-us',
                 loadComponent: () =>
                     import('./pages/about-us/about-us.component').then(m => m.AboutUsComponent),
+            },
+            {
+                path: 'login-form',
+                component: LoginFormComponent
             }
-
-        ]
+            // Puedes agregar más rutas hijas aquí
+        ],
     },
-    {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'reservation-form'
-    }
-];
+
+]

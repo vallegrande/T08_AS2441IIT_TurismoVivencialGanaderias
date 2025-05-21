@@ -1,4 +1,5 @@
 import { ReservationFormComponent } from './feature/reservation/reservation-form/reservation-form.component';
+import { LoginFormComponent } from './feature/login/login-form/login-form.component';
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 
@@ -15,6 +16,10 @@ export const routes: Routes = [
             {
         path: 'reservation-form',
         component: ReservationFormComponent
+      },
+      {
+        path: 'login-form',
+        component: LoginFormComponent
       }
             // Puedes agregar más rutas hijas aquí
         ],

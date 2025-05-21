@@ -1,29 +1,46 @@
 <footer class="footer-container">
     <div class="footer-content">
+        <!-- ACERCA DE -->
         <div class="footer-section">
             <h5>ACERCA DE</h5>
             <ul>
-                <li><a href="#">¿Quiénes somos?</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li>
+                    <a routerLink="/quienes-somos" routerLinkActive="active">¿Quiénes Somos?</a>
+                </li>
+                <li>
+                    <a routerLink="/contact-us" routerLinkActive="active">Contáctanos</a>
+                </li>
             </ul>
         </div>
 
+        <!-- ENLACES -->
         <div class="footer-section">
             <h5>ENLACES</h5>
             <ul>
-                <li><a href="#">Explorar Experiencias</a></li>
-                <li><a href="#">Conviértete en anfitrión</a></li>
+                <li>
+                    <a routerLink="/experiences" routerLinkActive="active">Explorar Experiencias</a>
+                </li>
+                <li>
+                    <a routerLink="/anfitrion" routerLinkActive="active">Conviértete en anfitrión</a>
+                    <!-- cambia esto si tienes una ruta específica -->
+                </li>
             </ul>
         </div>
 
+        <!-- LEGAL -->
         <div class="footer-section">
             <h5>LEGAL</h5>
             <ul>
-                <li><a href="#">Política de Privacidad</a></li>
-                <li><a href="#">Términos y condiciones</a></li>
+                <li>
+                    <a routerLink="/politica-privacidad" routerLinkActive="active">Política de Privacidad</a>
+                </li>
+                <li>
+                    <a routerLink="/terminos-condiciones" routerLinkActive="active">Términos y condiciones</a>
+                </li>
             </ul>
         </div>
 
+        <!-- NEWSLETTER -->
         <div class="footer-section newsletter">
             <h5>SUSCRÍBETE AL BOLETÍN</h5>
             <div class="input-group">
@@ -32,20 +49,12 @@
             </div>
         </div>
 
+        <!-- REDES SOCIALES -->
         <div class="footer-section social-icons">
-            <a href="#" aria-label="Facebook" title="Facebook">
-                <i class="fab fa-facebook-f"></i> <!-- Facebook icon -->
-            </a>
-            <a href="#" aria-label="Twitter" title="Twitter">
-                <i class="fab fa-twitter"></i> <!-- Twitter icon -->
-            </a>
-            <a href="#" aria-label="Instagram" title="Instagram">
-                <i class="fab fa-instagram"></i> <!-- Instagram icon -->
-            </a>
-            <a href="#" aria-label="YouTube" title="YouTube">
-                <i class="fab fa-youtube"></i> <!-- YouTube icon -->
-            </a>
+            <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
-
     </div>
 </footer>

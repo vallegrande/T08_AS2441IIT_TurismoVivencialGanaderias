@@ -36,9 +36,30 @@
         <textarea id="message" name="message" rows="4" required></textarea>
       </div>
       <button type="submit" class="submit-button">Enviar</button>
+
+      <!--<img 
+        *ngFor="let image of images; let i = index"
+        [src]="image"
+        alt="Ganadería"
+        class="form-image"
+        [class.visible]="i === currentIndex"
+        [class.hidden]="i !== currentIndex"
+      />-->
     </form>
 
-    <img src="/images/contact-us/imgContactForm01.jpg" alt="Ganadería" class="form-image">
+    <img 
+      *ngFor="let image of images; let i = index"
+      [src]="image"
+      alt="Ganadería"
+      class="form-image"
+      [class.visible]="i === currentIndex"
+      [class.hidden]="i !== currentIndex"
+    />
+
+    <!--<img src="/images/contact-us/imgContactForm01.jpg" alt="Ganadería" class="form-image">
+    <img src="/images/contact-us/imgContactForm02.jpg" alt="Ganadería" class="form-image">
+    <img src="/images/contact-us/imgContactForm03.jpg" alt="Ganadería" class="form-image">-->
+
     <img src="/images/contact-us/galloContactUs01.png" alt="Decoración derecha" class="contact-deco deco-right">
   </div>
 </main>

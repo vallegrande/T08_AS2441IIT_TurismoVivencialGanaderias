@@ -1,8 +1,23 @@
 <main class="contact-section">
-  <div class="contact-header">
-    <img src="/images/contact-us/imgContactBanner01.jpg" alt="Banner" class="banner-image">
-    <h1 class="contact-title">Contáctanos</h1>
-  </div>
+  <section class="contact-hero">
+    <div class="contact-hero-content">
+      <h1>
+        Contáctanos
+      </h1>
+    </div>
+  </section>
+
+  <!-- Texto introductorio -->
+  <section class="contact-intro">
+    <h2>¡Estamos para ayudarte!</h2>
+    <p>¿Deseas vivir una experiencia única en las ganaderías de Cañete? Completa el formulario y uno de nuestros
+      representantes se comunicará contigo para brindarte más información sobre nuestras actividades de turismo
+      vivencial.</p>
+    <div class="contact-info">
+      <p><mat-icon>place</mat-icon> Ubícanos: Cañete, Lima - Perú</p>
+      <p><mat-icon>schedule</mat-icon> Atención: Lunes a Sábado - 9:00 a.m. a 5:00 p.m.</p>
+    </div>
+  </section>
 
   <div class="contact-container">
     <img src="/images/contact-us/toroContactUs01.png" alt="Decoración izquierda" class="contact-deco deco-left">
@@ -13,7 +28,7 @@
         <label for="firstName">
           <mat-icon>person</mat-icon> Nombres Completos
         </label>
-        <input type="text" id="firstName" formControlName="firstName" autocomplete="off" required>
+        <input type="text" placeholder="Ejemplo: Juan Carlos" id="firstName" formControlName="firstName" autocomplete="off" required>
         <small class="error" *ngIf="contactForm.get('firstName')?.touched && contactForm.get('firstName')?.invalid">
           * El nombre es obligatorio y debe comenzar con mayúscula.
         </small>
@@ -24,7 +39,7 @@
         <label for="lastName">
           <mat-icon>person</mat-icon> Apellidos Completos
         </label>
-        <input type="text" id="lastName" formControlName="lastName" autocomplete="off" required>
+        <input type="text" placeholder="Ejemplo: Rodríguez González" id="lastName" formControlName="lastName" autocomplete="off" required>
         <small class="error" *ngIf="contactForm.get('lastName')?.touched && contactForm.get('lastName')?.invalid">
           * El apellido es obligatorio y debe comenzar con mayúscula.
         </small>
@@ -35,7 +50,7 @@
         <label for="phone">
           <mat-icon>phone</mat-icon> Número de Teléfono
         </label>
-        <input type="tel" id="phone" formControlName="phone" autocomplete="off" required>
+        <input type="tel" placeholder="Ejemplo: 987654321" id="phone" formControlName="phone" autocomplete="off" required>
         <small class="error" *ngIf="contactForm.get('phone')?.touched && contactForm.get('phone')?.invalid">
           * Ingresa un número válido de 9 dígitos.
         </small>
@@ -55,13 +70,12 @@
       <button type="submit" class="submit-button" [disabled]="contactForm.invalid">Enviar</button>
     </form>
 
-    <!-- Carrusel de imágenes -->
-    <img *ngFor="let image of images; let i = index"
-         [src]="image"
-         alt="Ganadería"
-         class="form-image"
-         [class.visible]="i === currentIndex"
-         [class.hidden]="i !== currentIndex" />
+    <!-- Carrusel de imágenes con título -->
+    <div class="carousel">
+      <h3>Conoce nuestras experiencias</h3>
+      <img *ngFor="let image of images; let i = index" [src]="image" alt="Ganadería" class="form-image"
+        [class.visible]="i === currentIndex" [class.hidden]="i !== currentIndex" />
+    </div>
 
     <img src="/images/contact-us/galloContactUs01.png" alt="Decoración derecha" class="contact-deco deco-right">
   </div>

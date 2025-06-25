@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 interface Experience {
   id: number;
@@ -11,10 +12,10 @@ interface Experience {
 
 @Component({
   selector: 'app-experience-detail',
-  templateUrl: './experience-detail.component.html',
-  styleUrls: ['./experience-detail.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, FormsModule],
+  templateUrl: './experience-detail.component.html',
+  styleUrls: ['./experience-detail.component.scss']
 })
 export class ExperienceDetailComponent implements OnInit {
   experienceId!: number;
@@ -27,6 +28,9 @@ export class ExperienceDetailComponent implements OnInit {
     { name: 'Eduardo', text: 'Una experiencia única y enriquecedora. La calidez de la comunidad fue increíble.' },
     { name: 'Luis', text: 'Pasar el día en la comunidad rural fue inolvidable. ¡100% recomendado!' }
   ];
+
+  newCommentName = '';
+  newCommentText = '';
 
   imageUrl = '';
   location = '';
@@ -76,5 +80,17 @@ export class ExperienceDetailComponent implements OnInit {
     this.router.navigate(['/reservation-form'], {
       queryParams: { id: this.experienceId }
     });
+  }
+
+  addComment(): void {
+    if (this.newCommentName.trim() && this.newCommentText.trim()) {
+      this.comments.push({
+        name: this.newCommentName.trim(),
+        text: this.newCommentText.trim()
+      });
+
+      this.newCommentName = '';
+      this.newCommentText = '';
+    }
   }
 }

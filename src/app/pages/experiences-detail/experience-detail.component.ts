@@ -15,7 +15,7 @@ interface Experience {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './experience-detail.component.html',
-  styleUrls: ['./experience-detail.component.scss']
+  styleUrls: ['./experience-detail.component.scss'],
 })
 export class ExperienceDetailComponent implements OnInit {
   experienceId!: number;
@@ -25,11 +25,16 @@ export class ExperienceDetailComponent implements OnInit {
   selectedRating = 0;
 
   comments = [
-    { name: 'Eduardo', text: 'Una experiencia única y enriquecedora. La calidez de la comunidad fue increíble.' },
-    { name: 'Luis', text: 'Pasar el día en la comunidad rural fue inolvidable. ¡100% recomendado!' }
+    {
+      name: 'Eduardo',
+      text: 'Una experiencia única y enriquecedora. La calidez de la comunidad fue increíble.',
+    },
+    {
+      name: 'Luis',
+      text: 'Pasar el día en la comunidad rural fue inolvidable. ¡100% recomendado!',
+    },
   ];
 
-  newCommentName = '';
   newCommentText = '';
 
   imageUrl = '';
@@ -43,14 +48,15 @@ export class ExperienceDetailComponent implements OnInit {
       id: 1,
       title: 'Senderismo',
       image: 'images/experiences/senderismo.jpg',
-      description: 'Sumérgete en la naturaleza con nuestras caminatas guiadas por senderos rurales llenos de vida, paisajes impresionantes y aire puro. Una experiencia perfecta para desconectar de la ciudad y reconectar contigo mismo.'
+      description:
+        'Sumérgete en la naturaleza con nuestras caminatas guiadas por senderos rurales llenos de vida, paisajes impresionantes y aire puro. Una experiencia perfecta para desconectar de la ciudad y reconectar contigo mismo.',
     },
     {
       id: 2,
       title: 'Cocina Tradicional',
       image: 'images/experiences/cocinatradicional.jpg',
-      description: 'Aprende los secretos de la cocina campesina...'
-    }
+      description: 'Aprende los secretos de la cocina campesina...',
+    },
   ];
 
   constructor(private route: ActivatedRoute, private router: Router) {}
@@ -58,7 +64,9 @@ export class ExperienceDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.experienceId = +params['id'];
-      this.experience = this.experiences.find(exp => exp.id === this.experienceId);
+      this.experience = this.experiences.find(
+        (exp) => exp.id === this.experienceId
+      );
 
       if (this.experience) {
         this.imageUrl = this.experience.image;
@@ -78,18 +86,19 @@ export class ExperienceDetailComponent implements OnInit {
 
   goToReservation(): void {
     this.router.navigate(['/reservation-form'], {
-      queryParams: { id: this.experienceId }
+      queryParams: { id: this.experienceId },
     });
   }
 
   addComment(): void {
-    if (this.newCommentName.trim() && this.newCommentText.trim()) {
+    const textToUse = this.newCommentText.trim();
+
+    if (textToUse) {
       this.comments.push({
-        name: this.newCommentName.trim(),
-        text: this.newCommentText.trim()
+        name: 'Invitado',
+        text: textToUse,
       });
 
-      this.newCommentName = '';
       this.newCommentText = '';
     }
   }

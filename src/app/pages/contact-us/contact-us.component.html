@@ -3,56 +3,65 @@
     <img src="/images/contact-us/imgContactBanner01.jpg" alt="Banner" class="banner-image">
     <h1 class="contact-title">Contáctanos</h1>
   </div>
+
   <div class="contact-container">
     <img src="/images/contact-us/toroContactUs01.png" alt="Decoración izquierda" class="contact-deco deco-left">
 
-    <form class="contact-form">
+    <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <!-- Nombres -->
       <div class="form-group">
         <label for="firstName">
-          <mat-icon>person</mat-icon>
-          Nombres Completos
+          <mat-icon>person</mat-icon> Nombres Completos
         </label>
-        <input type="text" id="firstName" name="firstName" required>
+        <input type="text" id="firstName" formControlName="firstName" autocomplete="off" required>
+        <small class="error" *ngIf="contactForm.get('firstName')?.touched && contactForm.get('firstName')?.invalid">
+          * El nombre es obligatorio y debe comenzar con mayúscula.
+        </small>
       </div>
+
+      <!-- Apellidos -->
       <div class="form-group">
         <label for="lastName">
-          <mat-icon>person</mat-icon>
-          Apellidos Completos
+          <mat-icon>person</mat-icon> Apellidos Completos
         </label>
-        <input type="text" id="lastName" name="lastName" required>
+        <input type="text" id="lastName" formControlName="lastName" autocomplete="off" required>
+        <small class="error" *ngIf="contactForm.get('lastName')?.touched && contactForm.get('lastName')?.invalid">
+          * El apellido es obligatorio y debe comenzar con mayúscula.
+        </small>
       </div>
+
+      <!-- Teléfono -->
       <div class="form-group">
         <label for="phone">
-          <mat-icon>phone</mat-icon>
-          Número de Teléfono
+          <mat-icon>phone</mat-icon> Número de Teléfono
         </label>
-        <input type="tel" id="phone" name="phone" required>
+        <input type="tel" id="phone" formControlName="phone" autocomplete="off" required>
+        <small class="error" *ngIf="contactForm.get('phone')?.touched && contactForm.get('phone')?.invalid">
+          * Ingresa un número válido de 9 dígitos.
+        </small>
       </div>
+
+      <!-- Mensaje -->
       <div class="form-group full-width">
         <label for="message">
-          <mat-icon>chat</mat-icon>
-          Mensaje
+          <mat-icon>chat</mat-icon> Mensaje
         </label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+        <textarea id="message" rows="4" formControlName="message" required></textarea>
+        <small class="error" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid">
+          * El mensaje es obligatorio y debe tener máximo 250 caracteres.
+        </small>
       </div>
-      <button type="submit" class="submit-button">Enviar</button>
 
-      <!--<img 
-        *ngFor="let image of images; let i = index"
-        [src]="image"
-        alt="Ganadería"
-        class="form-image"
-        [class.visible]="i === currentIndex"
-        [class.hidden]="i !== currentIndex"
-      />-->
+      <button type="submit" class="submit-button" [disabled]="contactForm.invalid">Enviar</button>
     </form>
 
-    <img *ngFor="let image of images; let i = index" [src]="image" alt="Ganadería" class="form-image"
-      [class.visible]="i === currentIndex" [class.hidden]="i !== currentIndex" />
-
-    <!--<img src="/images/contact-us/imgContactForm01.jpg" alt="Ganadería" class="form-image">
-    <img src="/images/contact-us/imgContactForm02.jpg" alt="Ganadería" class="form-image">
-    <img src="/images/contact-us/imgContactForm03.jpg" alt="Ganadería" class="form-image">-->
+    <!-- Carrusel de imágenes -->
+    <img *ngFor="let image of images; let i = index"
+         [src]="image"
+         alt="Ganadería"
+         class="form-image"
+         [class.visible]="i === currentIndex"
+         [class.hidden]="i !== currentIndex" />
 
     <img src="/images/contact-us/galloContactUs01.png" alt="Decoración derecha" class="contact-deco deco-right">
   </div>

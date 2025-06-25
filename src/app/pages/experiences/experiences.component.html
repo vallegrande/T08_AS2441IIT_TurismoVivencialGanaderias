@@ -1,7 +1,14 @@
-<h2 class="section-title">Experiencias Que Puedes Vivir con Nosotros</h2>
+<section class="experiences-section">
+  <h2 class="section-title">Experiencias Que Puedes Vivir con Nosotros</h2>
 
-<div class="experiences-container">
-    <app-experience-card *ngFor="let exp of experiences" [title]="exp.title" [image]="exp.image"
-        [description]="exp.description" [buttonText]="'More info'" (moreInfo)="openDialog(exp)">
+  <div class="experiences-container">
+    <app-experience-card 
+      *ngFor="let exp of experiences" 
+      [title]="exp.title" 
+      [image]="exp.image"
+      [description]="exp.description" 
+      [buttonText]="'More info'" 
+      (moreInfo)="goToDetail(exp)">
     </app-experience-card>
-</div>
+  </div>
+</section>

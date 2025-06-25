@@ -1,0 +1,49 @@
+<section class="hero-image" *ngIf="imageUrl">
+  <img [src]="imageUrl" [alt]="location" />
+</section>
+
+<div class="experience-content" *ngIf="location && duration && price && fullDescription">
+  <h1>{{ location }}</h1>
+  <p class="info-line">{{ location }} · {{ duration }} · {{ price }}</p>
+
+  <div class="box">
+    <h2>Descripción</h2>
+    <p>
+      {{ isDescriptionExpanded ? fullDescription : (fullDescription | slice:0:100) + '...' }}
+    </p>
+    <button class="btn-link" (click)="toggleDescription()">
+      {{ isDescriptionExpanded ? 'Leer menos' : 'Leer más' }}
+    </button>
+  </div>
+
+  <section class="details-layout">
+    <div class="box left">
+      <h3>Itinerario</h3>
+      <ul>
+        <li><strong>9:00 a.m.</strong> – Bienvenida y recorrido por el lugar</li>
+        <li><strong>10:00 a.m.</strong> – Actividad vivencial: agricultura, cocina o artesanía local</li>
+        <li><strong>1:00 p.m.</strong> – Almuerzo típico con productos de la zona</li>
+        <li><strong>3:00 p.m.</strong> – Paseo por los alrededores y charla con pobladores</li>
+        <li><strong>5:00 p.m.</strong> – Despedida y entrega de un recuerdo artesanal</li>
+      </ul>
+    </div>
+
+    <div class="box right">
+      <button class="btn-reserve">Reservar Ahora</button>
+
+      <div class="comments">
+        <h3>Valoración</h3>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" (click)="setRating(star)">
+            <i [class]="star <= selectedRating ? 'fa fa-star checked' : 'fa fa-star'"></i>
+          </span>
+        </div>
+
+        <h3>Comentarios</h3>
+        <div class="comment-box" *ngFor="let comment of comments">
+          <p><strong>{{ comment.name }}:</strong> “{{ comment.text }}”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

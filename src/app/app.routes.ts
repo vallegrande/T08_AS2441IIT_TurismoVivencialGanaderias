@@ -34,6 +34,11 @@ export const routes: Routes = [
                     import('./pages/about-us/about-us.component').then(m => m.AboutUsComponent),
             },
             {
+                path: 'experiences/:id', // ID dinámico para cada experiencia
+                loadComponent: () =>
+                    import('./pages/experiences-detail/experience-detail.component').then(m => m.ExperienceDetailComponent),
+            },
+            {
                 path: 'login-form',
                 component: LoginFormComponent
             }

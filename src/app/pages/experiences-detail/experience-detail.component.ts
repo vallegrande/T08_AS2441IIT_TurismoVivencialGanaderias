@@ -1,0 +1,74 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+interface Experience {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+}
+
+@Component({
+  selector: 'app-experience-detail',
+  templateUrl: './experience-detail.component.html',
+  styleUrls: ['./experience-detail.component.scss'],
+  standalone: true,
+  imports: [CommonModule]
+})
+export class ExperienceDetailComponent implements OnInit {
+  experienceId!: number;
+  experience?: Experience;
+
+  isDescriptionExpanded = false;
+  selectedRating = 0;
+
+  comments = [
+    { name: 'Eduardo', text: 'Una experiencia única y enriquecedora. La calidez de la comunidad fue increíble.' },
+    { name: 'Luis', text: 'Pasar el día en la comunidad rural fue inolvidable. ¡100% recomendado!' }
+  ];
+
+  imageUrl = '';
+  location = '';
+  duration = '1 día';
+  price = 'S/150 por persona';
+  fullDescription = '';
+
+  experiences: Experience[] = [
+    {
+      id: 1,
+      title: 'Senderismo',
+      image: 'images/experiences/senderismo.jpg',
+      description: 'Sumérgete en la naturaleza con nuestras caminatas guiadas...'
+    },
+    {
+      id: 2,
+      title: 'Cocina Tradicional',
+      image: 'images/experiences/cocinatradicional.jpg',
+      description: 'Aprende los secretos de la cocina campesina...'
+    }
+  ];
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.experienceId = +params['id'];
+      this.experience = this.experiences.find(exp => exp.id === this.experienceId);
+
+      if (this.experience) {
+        this.imageUrl = this.experience.image;
+        this.location = this.experience.title;
+        this.fullDescription = this.experience.description;
+      }
+    });
+  }
+
+  toggleDescription(): void {
+    this.isDescriptionExpanded = !this.isDescriptionExpanded;
+  }
+
+  setRating(value: number): void {
+    this.selectedRating = value;
+  }
+}

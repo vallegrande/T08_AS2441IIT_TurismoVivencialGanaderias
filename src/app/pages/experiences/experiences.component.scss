@@ -1,15 +1,25 @@
 .experiences-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px 10px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section-title {
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    margin: auto 20px auto;
-    margin-top: 40px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin: 40px 20px 20px;
+  color: #222; /* agrega un color más definido */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* para mejor legibilidad */
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 20px;
+    margin: 30px 10px 15px;
+  }
 }

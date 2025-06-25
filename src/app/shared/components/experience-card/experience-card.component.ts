@@ -18,7 +18,7 @@ export class ExperienceCardComponent {
 
   @Output() moreInfo = new EventEmitter<void>();
 
-  onClick(): void {
+  handleMoreInfoClick(): void {
     this.moreInfo.emit();
   }
 }

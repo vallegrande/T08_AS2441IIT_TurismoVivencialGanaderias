@@ -1,23 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>T08Turismovivencial</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="logo/logorustitourverde.png">
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <link rel="icon" type="image/x-icon" href="logo/logorustitourverde.png" />
+  <!-- Si quieres dos íconos, mejor usa rel="shortcut icon" para uno y "icon" para otro, o elimina uno -->
+  <!-- Aquí solo dejé uno para evitar conflicto -->
+  
+  <!-- FontAwesome versión 6.7.2 -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-  <!-- En tu archivo index.html en la sección de <head> -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+  <!-- Coloca aquí los scripts que quieras cargar en head si es necesario -->
 </head>
 <body class="mat-typography">
   <app-root></app-root>
+
+  <!-- Scripts deben ir antes de cerrar el body -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+    integrity="sha512-1+6Z2b7m8d9k4z" 
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
 </body>
 </html>

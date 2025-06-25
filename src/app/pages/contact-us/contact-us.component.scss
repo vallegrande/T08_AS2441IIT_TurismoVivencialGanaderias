@@ -74,7 +74,6 @@
       .form-group {
         display: flex;
         flex-direction: column;
-        font-family: 'Baloo Bhaina 2', cursive;
         font-weight: 600;
         color: #1a1a1a;
 
@@ -84,6 +83,11 @@
           gap: 0.5rem;
           font-size: 1rem;
           margin-bottom: 0.25rem;
+
+          mat-icon {
+            font-size: 1.5rem;
+            color: #507455;
+          }
         }
 
         input,

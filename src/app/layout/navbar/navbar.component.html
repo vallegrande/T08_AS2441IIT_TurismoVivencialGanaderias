@@ -1,4 +1,3 @@
-<!-- navbar.component.html -->
 <nav class="navbar">
     <div class="navbar__logo">
         <img src="/logo/logorustitourblanco.png" alt="RustiTour Logo" />
@@ -11,13 +10,17 @@
         <li><a routerLink="/about-us" routerLinkActive="active">¿Quiénes Somos?</a></li>
     </ul>
     <div class="navbar__user">
-        <button mat-icon-button aria-label="Iniciar sesión" (click)="toggleLoginModal()">
+        <button mat-icon-button (click)="openLogin()">
             <mat-icon>person</mat-icon>
         </button>
     </div>
-
-    <!-- Mueve el login-form fuera del flujo normal del documento -->
-    <div class="login-modal-wrapper" *ngIf="showLoginModal">
-        <app-login-form [isOpen]="showLoginModal" (closed)="onLoginModalClosed()"></app-login-form>
-    </div>
 </nav>
+
+<!-- Fuera del navbar, los modales -->
+<div class="modal-overlay" *ngIf="showLogin || showRegister">
+    <app-login-form [isOpen]="showLogin" (closed)="closeAllModals()" (registerRequested)="switchToRegister()">
+    </app-login-form>
+
+    <app-register [isOpen]="showRegister" (closed)="closeAllModals()" (loginRequested)="switchToLogin()">
+    </app-register>
+</div>

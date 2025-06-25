@@ -1,11 +1,10 @@
-// navbar.component.ts
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { LoginFormComponent } from '../../feature/auth/login/login.component'; // Asegúrate de que la ruta es correcta
+import { LoginFormComponent } from '../../feature/auth/login/login.component';
+import { RegisterComponent } from '../../feature/auth/register/register.component';
 import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-navbar',
@@ -14,22 +13,39 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     MatButtonModule,
     MatIconModule,
-    LoginFormComponent, // Agrega el componente de login
+    LoginFormComponent,
+    RegisterComponent,
     CommonModule
   ],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  showLoginModal = false; // Variable para controlar la visibilidad del modal
+  showLogin = false;
+  showRegister = false;
 
-  toggleLoginModal() {
-    this.showLoginModal = !this.showLoginModal;
+  openLogin(): void {
+    this.showLogin = true;
+    this.showRegister = false;
   }
 
-  onLoginModalClosed() {
-    this.showLoginModal = false;
+  openRegister(): void {
+    this.showRegister = true;
+    this.showLogin = false;
   }
 
-  
+  switchToRegister(): void {
+    this.showLogin = false;
+    this.showRegister = true;
+  }
+
+  switchToLogin(): void {
+    this.showRegister = false;
+    this.showLogin = true;
+  }
+
+  closeAllModals(): void {
+    this.showLogin = false;
+    this.showRegister = false;
+  }
 }

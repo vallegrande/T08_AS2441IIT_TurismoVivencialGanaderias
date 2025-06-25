@@ -1,7 +1,9 @@
 <div class="login-overlay" *ngIf="isOpen">
   <div class="login-container" (click)="$event.stopPropagation()">
     <div class="login-box">
-      <button class="close-button" (click)="close()">×</button>
+      <button mat-icon-button (click)="close()" style="margin-left: auto;">
+    <mat-icon>close</mat-icon>
+  </button>
       <h2 class="title">TURISMO VIVENCIAL</h2>
 
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm">

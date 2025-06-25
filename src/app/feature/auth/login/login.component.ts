@@ -20,6 +20,7 @@ import Swal from 'sweetalert2';
 export class LoginFormComponent {
   @Input() isOpen = false;
   @Output() closed = new EventEmitter<void>();
+  @Output() registerRequested = new EventEmitter<void>();
 
   showPassword = false;
   credentials = {
@@ -135,17 +136,8 @@ export class LoginFormComponent {
     }
   }
 
+  // Modifica el método onRegister
   onRegister(): void {
-    Swal.fire({
-      title: 'Registro',
-      html: 'Serás redirigido al formulario de registro',
-      icon: 'info',
-      timer: 1500,
-      timerProgressBar: true,
-      showConfirmButton: false
-    }).then(() => {
-      this.close();
-      // Aquí podrías navegar a la ruta de registro
-    });
+    this.registerRequested.emit(); // Solo emite el evento, no cierra el modal
   }
 }

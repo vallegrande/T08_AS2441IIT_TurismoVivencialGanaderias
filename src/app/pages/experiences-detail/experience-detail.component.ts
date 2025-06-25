@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 interface Experience {
@@ -39,7 +39,7 @@ export class ExperienceDetailComponent implements OnInit {
       id: 1,
       title: 'Senderismo',
       image: 'images/experiences/senderismo.jpg',
-      description: 'Sumérgete en la naturaleza con nuestras caminatas guiadas...'
+      description: 'Sumérgete en la naturaleza con nuestras caminatas guiadas por senderos rurales llenos de vida, paisajes impresionantes y aire puro. Una experiencia perfecta para desconectar de la ciudad y reconectar contigo mismo.'
     },
     {
       id: 2,
@@ -49,7 +49,7 @@ export class ExperienceDetailComponent implements OnInit {
     }
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -70,5 +70,11 @@ export class ExperienceDetailComponent implements OnInit {
 
   setRating(value: number): void {
     this.selectedRating = value;
+  }
+
+  goToReservation(): void {
+    this.router.navigate(['/reservation-form'], {
+      queryParams: { id: this.experienceId }
+    });
   }
 }

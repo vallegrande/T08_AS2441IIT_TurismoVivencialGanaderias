@@ -48,6 +48,8 @@ export class ContactUsComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
+      this.contactForm.reset();
+
       console.log('Formulario enviado:', this.contactForm.value);
       
     } else {

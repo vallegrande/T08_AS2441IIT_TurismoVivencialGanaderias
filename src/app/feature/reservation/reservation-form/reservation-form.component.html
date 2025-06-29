@@ -1,68 +1,145 @@
 <section class="hero">
-    <div class="hero-content">
-        <h1>
-            Reservaciones
-        </h1>
-    </div>
+  <div class="hero-content">
+    <h1>Reservaciones</h1>
+  </div>
 </section>
-<section class="reservaciones">
 
-  <form class="formulario">
+<section class="reservaciones">
+  <form #formulario="ngForm" (ngSubmit)="enviarFormulario(formulario)" novalidate class="formulario">
     <div class="campos">
+
+      <!-- Fecha Entrada -->
       <div class="campo">
         <label>Fecha de Entrada</label>
-          <div class="input-icono-derecha">
-            <input type="date" />
-            <i class="fas fa-calendar-alt"></i>
-          </div>
+        <div class="input-icono-derecha">
+          <input
+            type="date"
+            name="fechaEntrada"
+            [(ngModel)]="reserva.fechaEntrada"
+            required
+            #fechaEntradaRef="ngModel"
+          />
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div *ngIf="fechaEntradaRef.invalid && fechaEntradaRef.touched" class="mensaje-error">
+          <span *ngIf="fechaEntradaRef.errors?.['required']">La fecha de entrada es obligatoria.</span>
+        </div>
       </div>
 
+      <!-- Fecha Salida -->
       <div class="campo">
         <label>Fecha de Salida</label>
         <div class="input-icono-derecha">
-            <input type="date" />
-            <i class="fas fa-calendar-alt"></i>
-          </div>
+          <input
+            type="date"
+            name="fechaSalida"
+            [(ngModel)]="reserva.fechaSalida"
+            required
+            #fechaSalidaRef="ngModel"
+          />
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div *ngIf="fechaSalidaRef.invalid && fechaSalidaRef.touched" class="mensaje-error">
+          <span *ngIf="fechaSalidaRef.errors?.['required']">La fecha de salida es obligatoria.</span>
+        </div>
       </div>
-        <div class="campo">
-          <label>Nombres Completos</label>
-          <div class="input-icono-derecha">
-            <input type="text" placeholder="Tu nombre" />
-            <i class="fas fa-user"></i>
-          </div>
+
+      <!-- Nombres -->
+      <div class="campo">
+        <label>Nombres Completos</label>
+        <div class="input-icono-derecha">
+          <input
+            type="text"
+            name="nombres"
+            placeholder="Tu nombre"
+            [(ngModel)]="reserva.nombres"
+            required
+            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"
+            #nombresRef="ngModel"
+          />
+          <i class="fas fa-user"></i>
+        </div>
+        <div *ngIf="nombresRef.invalid && nombresRef.touched" class="mensaje-error">
+          <span *ngIf="nombresRef.errors?.['required']">El nombre es obligatorio.</span>
+          <span *ngIf="nombresRef.errors?.['pattern']">No se permiten números en el nombre.</span>
+        </div>
       </div>
+
+      <!-- Apellidos -->
       <div class="campo">
         <label>Apellidos Completos</label>
         <div class="input-icono-derecha">
-        <input type="text" placeholder="Tus apellidos" />
-        <i class="fas fa-user"></i>
+          <input
+            type="text"
+            name="apellidos"
+            placeholder="Tus apellidos"
+            [(ngModel)]="reserva.apellidos"
+            required
+            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$"
+            #apellidosRef="ngModel"
+          />
+          <i class="fas fa-user"></i>
+        </div>
+        <div *ngIf="apellidosRef.invalid && apellidosRef.touched" class="mensaje-error">
+          <span *ngIf="apellidosRef.errors?.['required']">El apellido es obligatorio.</span>
+          <span *ngIf="apellidosRef.errors?.['pattern']">No se permiten números en el apellido.</span>
         </div>
       </div>
+
+      <!-- Número de contacto -->
       <div class="campo">
-        <label>Número de Contacto</label>
-        <div class="input-icono-derecha">
-        <input type="tel" placeholder="Tu número" />
-        <i class="fas fa-phone"></i>
-        </div>
-      </div>
+  <label>Número de Contacto</label>
+  <div class="input-icono-derecha">
+    <input
+      type="tel"
+      name="telefono"
+      placeholder="Tu número"
+      [(ngModel)]="reserva.telefono"
+      required
+      pattern="^9\d{8}$"
+      #telefonoRef="ngModel"
+    />
+    <i class="fas fa-phone"></i>
+  </div>
+  <div *ngIf="telefonoRef.invalid && telefonoRef.touched" class="mensaje-error">
+    <span *ngIf="telefonoRef.errors?.['required']">El número es obligatorio.</span>
+    <span *ngIf="telefonoRef.errors?.['pattern']">
+      El número debe tener 9 dígitos y empezar con 9.
+    </span>
+  </div>
+</div>
+
+
+      <!-- Experiencia -->
       <div class="campo">
         <label>Tipo de Experiencia Ganadera</label>
         <div class="opciones">
-          <label><input type="radio" name="experiencia" /> Alojamiento</label>
-          <label><input type="radio" name="experiencia" /> Comida Tradicional</label>
-          <label><input type="radio" name="experiencia" /> Taller de Costura</label>
-          <label><input type="radio" name="experiencia" /> Taller de Ordeño</label>
-          <label><input type="radio" name="experiencia" /> Actividades Agrícolas</label>
+          <label><input type="radio" name="experiencia" value="Alojamiento" [(ngModel)]="reserva.experiencia" required /> Alojamiento</label>
+          <label><input type="radio" name="experiencia" value="Comida Tradicional" [(ngModel)]="reserva.experiencia" /> Comida Tradicional</label>
+          <label><input type="radio" name="experiencia" value="Taller de Costura" [(ngModel)]="reserva.experiencia" /> Taller de Costura</label>
+          <label><input type="radio" name="experiencia" value="Taller de Ordeño" [(ngModel)]="reserva.experiencia" /> Taller de Ordeño</label>
+          <label><input type="radio" name="experiencia" value="Actividades Agrícolas" [(ngModel)]="reserva.experiencia" /> Actividades Agrícolas</label>
+        </div>
+        <div *ngIf="formulario.submitted && !reserva.experiencia" class="mensaje-error">
+          Debes seleccionar una experiencia.
         </div>
       </div>
+
+      <!-- Comentarios -->
       <div class="campo">
         <label>Comentarios adicionales o necesidades especiales:</label>
-          <textarea></textarea>
+        <textarea name="comentarios" [(ngModel)]="reserva.comentarios"></textarea>
       </div>
 
+      <!-- Validación personalizada de fechas -->
+      <div *ngIf="errorMensaje" class="mensaje-error">
+        {{ errorMensaje }}
+      </div>
     </div>
+
+    <!-- Botón -->
     <div class="boton-container">
-    <button type="submit" class="btn">Reservar Ahora</button>
+      <button type="submit" class="btn">Reservar Ahora</button>
     </div>
   </form>
 </section>

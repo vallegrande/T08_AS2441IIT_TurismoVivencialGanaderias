@@ -38,10 +38,26 @@
             <i [class]="star <= selectedRating ? 'fa fa-star checked' : 'fa fa-star'"></i>
           </span>
         </div>
+        <div class="box comment-box">
+          <h3>Comentarios</h3>
 
-        <h3>Comentarios</h3>
-        <div class="comment-box" *ngFor="let comment of comments">
-          <p><strong>{{ comment.name }}:</strong> “{{ comment.text }}”</p>
+          <div class="comment-inner-box">
+            <!-- Lista con scroll -->
+            <div class="comment-list">
+              <div *ngFor="let comment of comments" class="comment">
+                <strong>{{ comment.name }}:</strong>
+                <p>{{ comment.text }}</p>
+              </div>
+            </div>
+
+            <!-- Input fijo en la parte inferior -->
+            <div class="comment-input">
+              <textarea [(ngModel)]="newCommentText" placeholder="Escribe tu comentario..."></textarea>
+              <button (click)="addComment()" aria-label="Enviar comentario">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

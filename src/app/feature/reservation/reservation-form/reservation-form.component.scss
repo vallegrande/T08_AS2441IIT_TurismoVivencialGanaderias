@@ -148,3 +148,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: center;
 }
+
+.mensaje-error {
+  background-color: #fdecea;
+  color: #b71c1c;
+  padding: 6px 10px;
+  border-left: 4px solid #f44336;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  line-height: 1.3;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+

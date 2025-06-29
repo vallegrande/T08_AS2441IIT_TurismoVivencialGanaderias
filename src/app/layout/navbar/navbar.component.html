@@ -8,13 +8,19 @@
         <li><a routerLink="/contact-us" routerLinkActive="active">Contactanos</a></li>
         <li><a routerLink="/reservation-form" routerLinkActive="active">Reservaciones</a></li>
         <li><a routerLink="/about-us" routerLinkActive="active">¿Quiénes Somos?</a></li>
-
-
     </ul>
     <div class="navbar__user">
-        <button mat-icon-button aria-label="Iniciar sesión" [routerLink]="'/login-form'">
+        <button mat-icon-button (click)="openLogin()">
             <mat-icon>person</mat-icon>
         </button>
-
     </div>
 </nav>
+
+<!-- Fuera del navbar, los modales -->
+<div class="modal-overlay" *ngIf="showLogin || showRegister">
+    <app-login-form [isOpen]="showLogin" (closed)="closeAllModals()" (registerRequested)="switchToRegister()">
+    </app-login-form>
+
+    <app-register [isOpen]="showRegister" (closed)="closeAllModals()" (loginRequested)="switchToLogin()">
+    </app-register>
+</div>

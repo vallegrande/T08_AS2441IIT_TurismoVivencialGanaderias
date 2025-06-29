@@ -1,5 +1,5 @@
 
-import { LoginFormComponent } from './feature/login/login-form/login-form.component';
+import { LoginFormComponent } from './feature/auth/login/login.component';
 import { Routes } from '@angular/router';
 import { ReservationFormComponent } from './feature/reservation/reservation-form/reservation-form.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
@@ -38,11 +38,7 @@ export const routes: Routes = [
                 loadComponent: () =>
                     import('./pages/experiences-detail/experience-detail.component').then(m => m.ExperienceDetailComponent),
             },
-            {
-                path: 'login-form',
-                component: LoginFormComponent
-            }
-            // Puedes agregar más rutas hijas aquí
+
         ],
     },
 

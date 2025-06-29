@@ -1,0 +1,136 @@
+.register-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+    background-color: transparent;
+    margin-top: 0;
+}
+
+.register-box {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    max-width: 90%;
+    text-align: center;
+
+    .title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #007f4e;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        text-align: left;
+        margin-top: 1rem;
+        margin-bottom: 0.3rem;
+        color: #333;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+        width: 100%;
+        padding: 0.6rem;
+        border-radius: 1.5rem;
+        border: 1px solid #ccc;
+        outline: none;
+        box-sizing: border-box;
+        font-size: 1rem;
+
+        &:focus {
+            border-color: #007f4e;
+            box-shadow: 0 0 0 2px rgba(0, 127, 78, 0.2);
+        }
+    }
+
+    .password-wrapper {
+        position: relative;
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #666;
+
+            &:hover {
+                color: #007f4e;
+            }
+        }
+    }
+
+    .error-message {
+        color: #d32f2f;
+        font-size: 0.8rem;
+        text-align: left;
+        margin-top: 0.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.7rem;
+        margin-top: 1.5rem;
+        border: none;
+        border-radius: 1.5rem;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+
+        &:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        &.register {
+            background-color: #007f4e;
+
+            &:hover:not(:disabled) {
+                background-color: #006441;
+            }
+        }
+    }
+
+    .login-text {
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        color: #555;
+
+        a {
+            color: #007f4e;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -5,8 +5,8 @@
             VIAJA CON EL CORAZÓN
         </h1>
         <div class="hero-buttons">
-            <app-button label="NUESTRAS EXPERIENCIAS" color="primary"></app-button>
-            <app-button label="ÚNETE A NOSOTROS" color="secondary"></app-button>
+            <app-button label="NUESTRAS EXPERIENCIAS" color="primary" [routerLink]="['/experiences']"></app-button>
+            <app-button label="ÚNETE A NOSOTROS" color="secondary" [routerLink]="['/about-us']"></app-button>
         </div>
     </div>
 </section>
@@ -34,7 +34,7 @@
                 <option>Taller de costura</option>
                 <option>Taller de ordeño</option>
             </select>
-            <app-button label="BUSCAR" color="primary" class="btn-search"></app-button>
+            <app-button label="BUSCAR" color="primary" class="btn-search" (click)="searchExperiences()"></app-button>
         </div>
     </div>
 

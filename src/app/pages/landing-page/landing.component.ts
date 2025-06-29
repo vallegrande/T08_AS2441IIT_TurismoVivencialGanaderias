@@ -1,13 +1,15 @@
+import { RouterModule } from '@angular/router';
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonComponent } from '../../shared/components/button/button.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, NgFor, MatButtonModule, MatIconModule, ButtonComponent],
+  imports: [CommonModule, NgFor, MatButtonModule, MatIconModule, RouterModule, ButtonComponent],
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
 })
@@ -62,5 +64,33 @@ export class LandingComponent implements AfterViewInit {
       container.scrollLeft = 0;
     }
     container.scrollBy({ left: this.cardWidth, behavior: 'smooth' });
+  }
+
+  searchExperiences() {
+    // Mostrar alerta de carga
+    Swal.fire({
+      title: 'Buscando...',
+      text: 'Por favor espere',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    // Simular tiempo de búsqueda (2 segundos)
+    setTimeout(() => {
+      Swal.fire({
+        icon: 'info',
+        title: 'No se encontraron resultados',
+        text: 'Tal vez puedas encontrar algo más de tu interés aquí',
+        confirmButtonText: 'Ver experiencias',
+        showCancelButton: false
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Redirigir a /experiences
+          window.location.href = '/experiences';
+        }
+      });
+    }, 2000);
   }
 }
